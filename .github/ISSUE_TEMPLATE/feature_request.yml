@@ -1,0 +1,67 @@
+name: Proponer una funcionalidad
+description: Nueva capacidad clínica, de investigación o de plataforma.
+title: "[feat] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Antes de abrir la propuesta, revisá [`MANIFEST.md`](https://github.com/iur-lmh/.github/blob/main/MANIFEST.md)
+        y [`docs/ROADMAP.md`](https://github.com/iur-lmh/.github/blob/main/docs/ROADMAP.md).
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - Clínica / evaluaciones
+        - Investigación / datasets
+        - Portal de pacientes
+        - Ingestión de dispositivos
+        - Seguridad / privacidad
+        - Infraestructura / DX
+        - Documentación
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema o necesidad
+      description: ¿Qué dolor resuelve? ¿Quién lo necesita?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: Describí la solución deseada y el alcance mínimo.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      description: Otras formas de resolverlo o trabajo previo relacionado.
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      placeholder: |
+        - [ ] Endpoint documentado en OpenAPI
+        - [ ] Tests unitarios
+        - [ ] Sin PII en logs ni exportaciones
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: principles
+    attributes:
+      label: Principios
+      options:
+        - label: La propuesta respeta la privacidad y no requiere exponer datos identificables.
+          required: true
+        - label: Es compatible con el stack y los free tiers documentados (o justifica la excepción).
+          required: true

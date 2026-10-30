@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Reportar una vulnerabilidad
+    url: https://github.com/iur-lmh/.github/security/advisories/new
+    about: No publiques datos clínicos ni detalles sensibles en un issue público.
+  - name: Contacto institucional
+    url: mailto:laboratoriodemovimientoucasal@ucasal.edu.ar
+    about: Consultas sobre el laboratorio, colaboraciones o acceso a la plataforma.
+  - name: Documentación de la plataforma
+    url: https://github.com/iur-lmh/.github/blob/main/MANIFEST.md
+    about: Inventario de repositorios, arquitectura y stack.

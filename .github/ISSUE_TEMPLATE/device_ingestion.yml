@@ -1,0 +1,81 @@
+name: Ingestión de un nuevo dispositivo
+description: Incorporar un formato de exportación biomecánica al pipeline.
+title: "[device] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Usá esta plantilla para proponer un adaptador nuevo (plataforma de fuerza, IMU,
+        EMG, cámara, etc.). **No adjuntes archivos con datos reales de pacientes.**
+        Compartí una muestra anonimizada o una descripción del formato.
+
+  - type: input
+    id: device
+    attributes:
+      label: Dispositivo / software
+      placeholder: Biobit, mDurance, OptiTrack, Noraxon…
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Versión del software / firmware
+      placeholder: 2.3.1
+
+  - type: dropdown
+    id: format
+    attributes:
+      label: Formato de exportación
+      multiple: true
+      options:
+        - CSV
+        - Excel / XLSX
+        - JSON
+        - C3D
+        - MP4 / MOV
+        - PDF
+        - API / base de datos
+        - Otro
+    validations:
+      required: true
+
+  - type: textarea
+    id: structure
+    attributes:
+      label: Estructura del archivo
+      description: Columnas, unidades, frecuencia de muestreo, codificación, metadatos.
+      placeholder: |
+        fecha, paciente_id, test, peak_force_n, jump_height_cm
+        2026-10-01, LMH-001, CMJ, 1820, 34.2
+    validations:
+      required: true
+
+  - type: textarea
+    id: protocol
+    attributes:
+      label: Protocolo y métricas esperadas
+      description: ¿Qué se mide y cuáles son las variables principales?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sample
+    attributes:
+      label: Disponibilidad de muestra
+      options:
+        - Puedo compartir una muestra anonimizada
+        - Puedo describir el formato, pero no compartir archivos
+        - Necesito ayuda para obtener una muestra
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacidad
+      options:
+        - label: La muestra que compartiré no contiene nombres, DNI, emails ni historias clínicas.
+          required: true
+        - label: Entiendo que el adaptador se valida con tests antes de usarse en producción.
+          required: true

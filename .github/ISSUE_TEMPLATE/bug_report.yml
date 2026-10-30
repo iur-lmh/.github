@@ -1,0 +1,73 @@
+name: Reportar un error
+description: Algo no funciona como se espera en la API, el portal o los pipelines.
+title: "[bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar. **No incluyas datos de pacientes, credenciales ni
+        información clínica identificable.** Usá datos sintéticos o seudónimos.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área afectada
+      options:
+        - API / backend (labos-core)
+        - Portal web (labos-web)
+        - Pipelines / parsing (biomech-pipelines)
+        - Infraestructura / Docker / CI
+        - Documentación
+        - Otro
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción del problema
+      description: ¿Qué ocurrió y qué esperabas que ocurriera?
+      placeholder: Al solicitar /api/v1/... recibo 500 en lugar de 200.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+      placeholder: |
+        1. Levantar docker compose
+        2. Autenticarse con el usuario de prueba
+        3. Enviar...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamiento esperado
+      placeholder: Debería devolver el listado paginado.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Versión / commit
+      description: Tag, commit o rama donde ocurre.
+      placeholder: main @ a1b2c3d
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs o capturas (sin datos sensibles)
+      description: Pegar trazas relevantes. Verificá que no contengan PII ni tokens.
+      render: shell
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Confirmación de privacidad
+      options:
+        - label: Confirmo que este reporte no contiene datos de pacientes ni secretos.
+          required: true
